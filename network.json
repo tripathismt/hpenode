@@ -1,0 +1,38 @@
+{
+        "hSmfUri": "string",
+        "smfUri": "string",
+        "pduSessionId": 255,
+        "sNssai": {
+          "sst": 255,
+          "sd": "string"
+        },
+        "additionalSnssai": {
+          "sst": 255,
+          "sd": "string"
+        },
+        "upCnxState": "ACTIVATED",
+        "n2SmInfo": {
+          "contentId": "string"
+        },
+        "n2SmInfoType": "PDU_RES_SETUP_REQ",
+        "allocatedEbiList": [
+          {
+            "epsBearerId": 15,
+            "arp": {
+              "priorityLevel": 15,
+              "preemptCap": "NOT_PREEMPT",
+              "preemptVuln": "NOT_PREEMPTABLE"
+            }
+          }
+        ],
+        "hoState": "NONE",
+        "gpsi": "string",
+        "smfServiceInstanceId": "string",
+        "recoveryTime": "2024-03-10T19:07:51.679Z",
+        "supportedFeatures": "string",
+        "selectedSmfId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "selectedOldSmfId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "interPlmnApiRoot": "string",
+        "udmGroupId": "string",
+        "pcfGroupId": "string"
+}
