@@ -1,0 +1,201 @@
+N14 MESSAGE PACKET:
+/ue-contexts/{ueContextId}:
+    put:
+      summary: Namf_Communication CreateUEContext service Operation
+      tags:
+        - Individual ueContext (Document)
+      operationId: CreateUEContext
+      security:
+        - {}
+        - oAuth2ClientCredentials:
+          - namf-comm
+        - oAuth2ClientCredentials:
+          - namf-comm
+          - namf-comm:ue-contexts:mobility
+      parameters:
+        - name: ueContextId
+          in: path
+          description: UE Context Identifier
+          required: true
+          schema:
+            type: string
+            pattern: '^(5g-guti-[0-9]{5,6}[0-9a-fA-F]{14}|imsi-[0-9]{5,15}|nai-.+|gli-.+|gci-.+|imei-[0-9]{15}|imeisv-[0-9]{16}|.+)$'
+      requestBody:
+        content:
+          multipart/related:  # message with binary body part(s)
+            schema:
+              type: object
+              properties: # Request parts
+                jsonData:
+                  $ref: '#/components/schemas/UeContextCreateData'
+                binaryDataN2Information:
+                  type: string
+                  format: binary
+                binaryDataN2InformationExt1:
+                  type: string
+                  format: binary
+                binaryDataN2InformationExt2:
+                  type: string
+                  format: binary
+                binaryDataN2InformationExt3:
+                  type: string
+                  format: binary
+                binaryDataN2InformationExt4:
+                  type: string
+                  format: binary
+                binaryDataN2InformationExt5:
+                  type: string
+                  format: binary
+                binaryDataN2InformationExt6:
+                  type: string
+                  format: binary
+                binaryDataN2InformationExt7:
+                  type: string
+                  format: binary
+                binaryDataN2InformationExt8:
+                  type: string
+                  format: binary
+                binaryDataN2InformationExt9:
+                  type: string
+                  format: binary
+                binaryDataN2InformationExt10:
+                  type: string
+                  format: binary
+                binaryDataN2InformationExt11:
+                  type: string
+                  format: binary
+                binaryDataN2InformationExt12:
+                  type: string
+                  format: binary
+                binaryDataN2InformationExt13:
+                  type: string
+                  format: binary
+                binaryDataN2InformationExt14:
+                  type: string
+                  format: binary
+                binaryDataN2InformationExt15:
+                  type: string
+                  format: binary
+                binaryDataN2InformationExt16:
+                  type: string
+                  format: binary
+                binaryDataN2InformationExt17:
+                  type: string
+                  format: binary
+            encoding:
+              jsonData:
+                contentType:  application/json
+              binaryDataN2Information:
+                contentType:  application/vnd.3gpp.ngap
+                headers:
+                  Content-Id:
+                    schema:
+                      type: string
+              binaryDataN2InformationExt1:
+                contentType:  application/vnd.3gpp.ngap
+                headers:
+                  Content-Id:
+                    schema:
+                      type: string
+              binaryDataN2InformationExt2:
+                contentType:  application/vnd.3gpp.ngap
+                headers:
+                  Content-Id:
+                    schema:
+                      type: string
+              binaryDataN2InformationExt3:
+                contentType:  application/vnd.3gpp.ngap
+                headers:
+                  Content-Id:
+                    schema:
+                      type: string
+              binaryDataN2InformationExt4:
+                contentType:  application/vnd.3gpp.ngap
+                headers:
+                  Content-Id:
+                    schema:
+                      type: string
+              binaryDataN2InformationExt5:
+                contentType:  application/vnd.3gpp.ngap
+                headers:
+                  Content-Id:
+                    schema:
+                      type: string
+              binaryDataN2InformationExt6:
+                contentType:  application/vnd.3gpp.ngap
+                headers:
+                  Content-Id:
+                    schema:
+                      type: string
+              binaryDataN2InformationExt7:
+                contentType:  application/vnd.3gpp.ngap
+                headers:
+                  Content-Id:
+                    schema:
+                      type: string
+              binaryDataN2InformationExt8:
+                contentType:  application/vnd.3gpp.ngap
+                headers:
+                  Content-Id:
+                    schema:
+                      type: string
+              binaryDataN2InformationExt9:
+                contentType:  application/vnd.3gpp.ngap
+                headers:
+                  Content-Id:
+                    schema:
+                      type: string
+              binaryDataN2InformationExt10:
+                contentType:  application/vnd.3gpp.ngap
+                headers:
+                  Content-Id:
+                    schema:
+                      type: string
+              binaryDataN2InformationExt11:
+                contentType:  application/vnd.3gpp.ngap
+                headers:
+                  Content-Id:
+                    schema:
+                      type: string
+              binaryDataN2InformationExt12:
+                contentType:  application/vnd.3gpp.ngap
+                headers:
+                  Content-Id:
+                    schema:
+                      type: string
+              binaryDataN2InformationExt13:
+                contentType:  application/vnd.3gpp.ngap
+                headers:
+                  Content-Id:
+                    schema:
+                      type: string
+              binaryDataN2InformationExt14:
+                contentType:  application/vnd.3gpp.ngap
+                headers:
+                  Content-Id:
+                    schema:
+                      type: string
+              binaryDataN2InformationExt15:
+                contentType:  application/vnd.3gpp.ngap
+                headers:
+                  Content-Id:
+                    schema:
+                      type: string
+              binaryDataN2InformationExt16:
+                contentType:  application/vnd.3gpp.ngap
+                headers:
+                  Content-Id:
+                    schema:
+                      type: string
+              binaryDataN2InformationExt17:
+                contentType:  application/vnd.3gpp.ngap
+                headers:
+                  Content-Id:
+                    schema:
+                      type: string
+        required: true
+      callbacks:
+        onN2MessageNotify:
+          '{$request.body#/n2NotifyUri}':
+            post:
+              summary: Namf_Communication N2 Info Notify (UE Specific) service Operation

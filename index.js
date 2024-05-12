@@ -1,21 +1,24 @@
-const http2 = require('http2')
-const server = http2.createServer((req,res)=>{
-    console.log("hello baby !!");
-})
-server.on('error', (err) => console.error(err))
+const http2 = require('http2');
 
+const server = http2.createServer();
+
+server.on('error', (err) => {
+  console.error('Server error:', err);
+});
 
 server.on('stream', (stream, headers) => {
-    console.log(headers);
+  console.log('Received request:', headers);
+
   stream.respond({
     ':status': 200,
-    'network-info': headers['network-info']
-  })
-  stream.write("processed request successfully")
-  stream.end()
-})
+    'Content-Type': 'application/json',
+    'network-info': JSON.stringify(headers["network-info"]),
+  });
+
+  stream.end(JSON.stringify({ message: 'processed request successfully' }));
+});
 
 const PORT = 8000;
-server.listen(PORT,()=>{
-    console.log(`server listening on port - ${PORT}`);
-})
+server.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
+});

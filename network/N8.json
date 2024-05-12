@@ -1,0 +1,135 @@
+MESSAGE 1:
+Message: 127.0.1.100:5556 PUT http://127.0.1.100:5556/nudm-uecm/v1/imsi-001010123456789/registrations/amf-3gpp-access
+
+ 
+
+Data:
+
+Stream id: 3
+
+HEADERS:
+
+  :method: PUT
+
+  :path: /nudm-uecm/v1/imsi-001010123456789/registrations/amf-3gpp-access
+
+  :scheme: http
+
+  :authority: 127.0.1.100:5556
+
+  accept: application/json
+
+  accept: application/problem+json
+
+  content-type: application/json
+
+DATA:
+
+  {"amfInstanceId":"96fc86dc-9bf4-489e-acb0-53a672cac636","imsVoPs":"HOMOGENEOUS_SUPPORT","deregCallbackUri":"http://127.0.1.100:6666/nudm-uecm/v1/imsi-001010123456789/pei-8690570563562913/dereg-notify","initialRegistrationInd":true,"guami":{"plmnId":{"mcc":"001","mnc":"01"},"amfId":"800101"},"ratType":"NR"}
+
+MESSAGE 2:
+Message: 127.0.1.100:5556 Status: 204
+
+ 
+
+Data:
+
+Stream id: 3
+
+HEADERS:
+
+  :status: 204
+
+MESSAGE 3:
+
+Message: 127.0.1.100:5556 GET http://127.0.1.100:5556/nudm-sdm/v2/imsi-001010123456789?dataset-names=AM,SM,SMF_SEL
+
+ 
+
+Data:
+
+Stream id: 5
+
+HEADERS:
+
+  :method: GET
+
+  :path: /nudm-sdm/v2/imsi-001010123456789?dataset-names=AM,SM,SMF_SEL
+
+  :scheme: http
+
+  :authority: 127.0.1.100:5556
+
+  accept: application/json
+
+  accept: application/problem+json
+
+MESSAGE 4:
+
+Message: 127.0.1.100:5556 Status: 200
+
+ 
+
+Data:
+
+Stream id: 5
+
+HEADERS:
+
+  :status: 200
+
+  content-type: application/json
+
+DATA:
+
+  {"amData":{"subscribedUeAmbr":{"uplink":"1000000 Kbps","downlink":"3000000 Kbps"},
+
+    "nssai":{"defaultSingleNssais":[{"sst":1}],"singleNssais":[{"sst":1}]},
+
+    "micoAllowed":true,"subscribedDnnList":["default","internet","ims","sos"],
+
+    "ptwParametersList":[{"operationMode":"WB_N1","ptwValue":"0011"},{"operationMode":"NB_N1","ptwValue":"0011"}]},
+
+    "smData":[{"singleNssai":{"sst":1},"dnnConfigurations":{"default":{"pduSessionTypes":
+
+                                     {"defaultSessionType":"IPV4","allowedSessionTypes":["IPV4"]},
+
+   "sscModes":{"defaultSscMode":"SSC_MODE_1","allowedSscModes":["SSC_MODE_1"]},"iwkEpsInd":true,
+
+          "5gQosProfile":{"5qi":9,"arp":{"priorityLevel":15,"preemptCap":"NOT_PREEMPT","preemptVuln":"NOT_PREEMPTABLE"}},
+
+   "sessionAmbr":{"uplink":"1000000 Kbps","downlink":"3000000 Kbps"}},
+
+    "internet":{"pduSessionTypes":{"defaultSessionType":"IPV4","allowedSessionTypes":["IPV4"]},
+
+   "sscModes":{"defaultSscMode":"SSC_MODE_1","allowedSscModes":["SSC_MODE_1"]},"iwkEpsInd":true,
+
+           "5gQosProfile":{"5qi":9,"arp":{"priorityLevel":15,"preemptCap":"NOT_PREEMPT","preemptVuln":"NOT_PREEMPTABLE"}},
+
+    "sessionAmbr":{"uplink":"1000000 Kbps","downlink":"3000000 Kbps"}},
+
+     "ims":{"pduSessionTypes":{"defaultSessionType":"IPV4V6","allowedSessionTypes":["IPV4","IPV6","IPV4V6"]},
+
+     "sscModes":{"defaultSscMode":"SSC_MODE_1","allowedSscModes":["SSC_MODE_1"]},"iwkEpsInd":true,
+
+           "5gQosProfile":{"5qi":5,"arp":{"priorityLevel":15,"preemptCap":"NOT_PREEMPT","preemptVuln":"NOT_PREEMPTABLE"}},
+
+     "sessionAmbr":{"uplink":"1000000 Kbps","downlink":"3000000 Kbps"}},
+
+     "sos":{"pduSessionTypes":{"defaultSessionType":"IPV4V6","allowedSessionTypes":["IPV4","IPV6","IPV4V6"]},
+
+     "sscModes":{"defaultSscMode":"SSC_MODE_1","allowedSscModes":["SSC_MODE_1"]},"iwkEpsInd":true,
+
+           "5gQosProfile":{"5qi":5,"arp":{"priorityLevel":15,"preemptCap":"NOT_PREEMPT","preemptVuln":"NOT_PREEMPTABLE"}},
+
+     "sessionAmbr":{"uplink":"1000000 Kbps","downlink":"3000000 Kbps"}}}}],
+
+     "smfSelData":{"subscribedSnssaiInfos":{"1":{"dnnInfos":
+
+            [{"dnn":"default","defaultDnnIndicator":true,"lboRoamingAllowed":false,"iwkEpsInd":false,"dnnBarred":false},
+
+             {"dnn":"internet","defaultDnnIndicator":false,"lboRoamingAllowed":false,"iwkEpsInd":false,"dnnBarred":false},
+
+             {"dnn":"ims","defaultDnnIndicator":false,"lboRoamingAllowed":false,"iwkEpsInd":false,"dnnBarred":false},
+
+             {"dnn":"sos","defaultDnnIndicator":false,"lboRoamingAllowed":false,"iwkEpsInd":false,"dnnBarred":false}]}}}}
